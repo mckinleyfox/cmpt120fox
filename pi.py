@@ -7,8 +7,8 @@ def main():
     n = int(input("Enter a value of n: "))
     approx = 0.0
     signchange = 1.0
-    for i in range(1, n-1, 2):
-       approx = approx + signchange + 4.0/i
+    for i in range(1, n+1, 2):
+       approx = approx + signchange * 4.0/i # JA
        signchange = -signchange
     print("The aprroximate value of pi is: ", approx)
     print("The difference between the approximation and real pi is: ", math.pi - approx) 
