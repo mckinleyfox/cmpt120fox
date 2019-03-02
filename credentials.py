@@ -10,40 +10,34 @@ def getName():
 def uname(name):
     return name[0] + "." + name[1]
 
-def password():
+def password(passwd):
+     if len(passwd) < 8:
+        print("Fool of a Took! That password is feeble!")
+        print("Make sure your password is at least 8 letters")
+        passwd = input("Create a new password: ")
+    if passwd.upper() == passwd:
+        print("Fool of a Took! That password is feeble!")
+        print("Make sure your password is at least 8 letters")
+        passwd = input("Create a new password: ")
+    if passwd.lower() == passwd:
+        print("Fool of a Took! That password is feeble!")
+        print("Make sure your password is at least 8 letters")
+        passwd = input("Create a new password: ")
+    else print("The force is strong in this one...")
+
+def getPasswordStrength(passwd):
     passwd = input("Create a new password: ")
-    # TODO modify this to ensure the password has at least 8 character
-    #while (len(passwd)<8):
-        #print("Fool of a Took! That password is feeble!")
-        #passwd = input("Create a new password: ")
-    #print("The force is strong in this one...")
-    weak = "weak"
-    med = "medium"
-    strong = "strong"
-    if len(passwd) > 8:
-        print ("password is", strong)
-    elif len(passwd) < 8:
-        print("password is", weak)
-        passwd = input("Create a new password: ")
-    if passwd.lower()== passwd or passwd.upper()==passwd:
-        print ('password is', weak)
-        passwd = input("Create a new password: ")
-    elif passwd.lower()== passwd and passwd.upper()==passwd:
-        print ('password is', med)
-    else:
-        passwd.lower()== passwd and passwd.upper()==passwd
-        print ('password is', strong)
-    return passwd
+    getPassword(passwd)
+
+    print("Your password is: ", passwrd
+    print("Account configured. Your new email address is", user.lower() + "@marist.edu")
 
     
 
 def main():
-    # get user's first and last name
     name= getName()
     user = uname(name)
     passwd = password()
-    # TODO modify this to generate a Marist-style username
-    # ask user to create a new password
+    passwordstrength = getPasswordStrength(passwd)
     
-    print("Account configured. Your new email address is", user.lower() + "@marist.edu")
 main()
