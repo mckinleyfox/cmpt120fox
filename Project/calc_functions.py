@@ -22,13 +22,15 @@ def getEquation(equation):
     while len(equation) > i and hasProdDiv(equation):
         if equation[i] == '*' or equation[i] == '/':
             equation = process(equation, i)
-        i=i+1
+        else:
+            i=i+1
         
     i = 0
     while len(equation) > i and hasAddSub(equation):
         if equation[i] == '+' or equation[i] == '-':
             equation = process (equation, i)
-        i=i+1
+        else:
+            i=i+1
 
     return float(equation [0])
 
