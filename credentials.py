@@ -2,6 +2,7 @@
 # Lab #5 – Working with Strings and Functions
 # Author: McKinley Fox
      # Created: 2019-02-25
+     
 def getName():
     first = input("Enter your first name: ")
     last = input("Enter your last name: ")
@@ -25,6 +26,7 @@ def password(passwd):
         passwd = input("Create a new password: ")
     else:
         print("The force is strong in this one...")
+    return password
     # Return?
 
 def getPasswordStrength(passwd):
