@@ -67,13 +67,13 @@ def process(equation, i):
     return equation
 
 #This initiates the input from the user  
-def main():
-    equation = input("Enter an equation (use spaces in between): ").split()
-    result = getEquation(equation)
-    print ("The result of the equation is", result)
+#def main():
+#    equation = input("Enter an equation (use spaces in between): ").split()
+#    result = getEquation(equation)
+#    print ("The result of the equation is", result)
    
 
-main()
+#main()
 
 
 
