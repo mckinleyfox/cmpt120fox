@@ -65,7 +65,7 @@ def main():
         mouse = win.getMouse()
         label = get_input(mouse, display)
         if label == "=":
-            result = get_equation(equation.split())
+            result = getEquation(equation.split())
             display.setText(str(result))
         else:
             equation = add_equation(equation, label)

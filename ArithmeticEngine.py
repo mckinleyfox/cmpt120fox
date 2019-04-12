@@ -42,7 +42,10 @@ def doLoop():
         
 def main():
     showIntro()
-    doLoop()
+    try:
+        doLoop()
+    except:
+        print("Division by 0")
     showOutro()
     
 main()
