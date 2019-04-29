@@ -3,26 +3,37 @@
 from graphics import *
 from calc_functions import * 
 
-def createCanvas():
-    win = GraphWin("Calculator",275, 375)
-    win.setBackground("purple")
-    return win
 displayEquation=[]
 displayString=""
 
+def createCanvas():
+    win = GraphWin("Calculator",275, 435)
+    win.setBackground("purple")
+    return win
+
 def get_coords(i):
-    coords = [[20,60],[80,60],[140,60],[200,60],[20,120],[80,120],[140,120],[200,120],[20,180],[80,180],[140,180],[200,180],[20,240],[80,240],[140,240],[200,240],[140,300],[200,300]]
+    coords = [[20,60],[80,60],[140,60],[200,60],
+              [20,120],[80,120],[140,120],[200,120],
+              [20,180],[80,180],[140,180],[200,180],
+              [20,240],[80,240],[140,240],[200,240],
+              [140,300],[200,300],
+              [20,360],[80,360],[140,360],[200,360]]
     return coords[i][0], coords [i][1]
 
 def get_label(i):
-    label = ['7','8','9','/','4','5','6','x','1','2','3','+','+ / -','0','.','-','C','=']
+    label = ['7','8','9','/','4','5','6','x','1','2','3','+','+ / -','0','.','-','C','=','M+','M-','MR','MC']
     return label[i]
     
 def create_buttons(win):
-    color = ['lavender','lavender','lavender','lightblue','lavender','lavender','lavender','lightblue','lavender','lavender','lavender','lightblue','lightblue','lavender','lavender','lightblue','lightblue','lightblue']
-    size = [50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50]
+    color = ['lavender','lavender','lavender','lightblue',
+             'lavender','lavender','lavender','lightblue',
+             'lavender','lavender','lavender','lightblue',
+             'lightblue','lavender','lavender','lightblue',
+             'lightblue','lightblue',
+             'lavender','lavender','lavender','lavender']
+    size = [50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50]
 
-    for i in range(18):
+    for i in range(22):
         x,y = get_coords(i)
         
         button = Rectangle(Point(x,y),Point(x+size[i],y+size[i]))
@@ -40,7 +51,7 @@ def createDisplay(win):
     return text
 
 def get_input(mouse,display):
-    for i in range(18):
+    for i in range(22):
         x,y = get_coords(i)
         if x<mouse.x < x+50 and y< mouse.y < y+50:
             print(get_label(i))
@@ -52,14 +63,14 @@ def add_equation(equation, label, memory):
     if len(equation) == 0:
         if label == 'MR':
             equation.append(str(memory))
-        elif label not in ['+','-','*','/', '+/-']:
+        elif label not in ['+','-','x','/', '+/-']:
             equation.append(label)
-    elif label in ['+','-','*','/']:
+    elif label in ['+','-','x','/']:
         equation.append(" " + label + " ")
     elif label == '+/-':
         equation[-1] = str(-1 * float(equation[-1]))
     elif label == 'MR':
-        if equation[-1] in [' + ',' - ',' * ',' / ']:
+        if equation[-1] in [' + ',' - ',' x ',' / ']:
             equation.append(str(memory))
     else:
         equation[-1] = equation[-1] + label
@@ -125,7 +136,7 @@ def main():
                 del equation[len(equation)-1]
             print(equation)
             display.setText(equationString(equation))
-        elif label == "Clr":
+        elif label == "C":
             equation=[]
             display.setText(equationString(equation))
         elif label == None:
